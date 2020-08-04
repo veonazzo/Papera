@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://font/umberto/umberto.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,11 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
@@ -41,6 +46,7 @@ margin_left = -100.0
 margin_top = -300.0
 margin_right = 100.0
 margin_bottom = -200.0
+theme = SubResource( 5 )
 custom_fonts/font = SubResource( 3 )
 text = "Start"
 

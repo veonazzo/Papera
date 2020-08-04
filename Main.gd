@@ -15,7 +15,7 @@ func _ready():
 func game_over():
 	#$ScoreTimer.stop()
 	$BombTimer.stop()
-	#$HUD.show_game_over()
+	$HUD.show_game_over()
 
 func new_game():
 	score = 0

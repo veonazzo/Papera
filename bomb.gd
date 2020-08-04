@@ -11,5 +11,5 @@ func _ready():
 func _on_Visibility_screen_exited():
 	queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	_on_Visibility_screen_exited()

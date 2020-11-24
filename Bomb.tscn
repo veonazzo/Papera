@@ -31,3 +31,4 @@ shape = SubResource( 2 )
 [node name="Visibility" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -1.99782, -33.3482 )
 scale = Vector2( 1.35346, 3.41275 )
+[connection signal="body_entered" from="." to="." method="_on_Bomb_body_entered"]

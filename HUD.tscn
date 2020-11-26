@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://font/umberto/umberto.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://audio/volumeoff_111172.png" type="Texture" id=3]
+[ext_resource path="res://audio/volumeoffopac.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -53,12 +55,12 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -7.0
+margin_top = -6.99997
 margin_right = 1.0
-margin_bottom = -100.0
+margin_bottom = 50.0
 custom_fonts/font = SubResource( 2 )
 text = "Mangia le mele... 
-ma attenzione alle bombe!"
+ma fai attenzione alle bombe!"
 align = 1
 autowrap = true
 __meta__ = {
@@ -76,8 +78,8 @@ margin_right = 100.0
 margin_bottom = -200.0
 theme = SubResource( 4 )
 custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.054902, 0.972549, 0.027451, 1 )
-text = "Start"
+custom_colors/font_color_hover = Color( 0, 1, 0.0862745, 1 )
+text = "inizia"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,8 +96,25 @@ margin_right = 112.416
 margin_bottom = -1.1582
 custom_fonts/font = SubResource( 6 )
 toggle_mode = true
+shortcut_in_tooltip = false
 text = "Credits"
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -56.9705
+margin_top = 9.19239
+margin_right = 455.03
+margin_bottom = 521.192
+rect_scale = Vector2( 0.1, 0.1 )
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -103,3 +122,4 @@ __meta__ = {
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="toggled" from="CreditButton" to="." method="_on_Button_toggled"]
 [connection signal="toggled" from="CreditButton" to="." method="_on_CreditButton_toggled"]
+[connection signal="toggled" from="VolumeButton" to="." method="_on_VolumeButton_toggled"]

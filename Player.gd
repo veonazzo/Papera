@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (int) var speed = 300
-export (int) var score = 0
+export (int) var score
 
 onready var HUD : CanvasLayer = get_node("/root/Main").get_child(0)
 
@@ -15,6 +15,7 @@ var velocity = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	score = 0
 	
 	
 	
@@ -42,6 +43,20 @@ func get_input(delta):
 	elif gameover:
 		$AnimatedSprite.play("gameover")
 	velocity = velocity.normalized() * speed * delta
+
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			get_tree().set_input_as_handled()
+		else:
+			get_tree().set_input_as_handled()
+	if event is InputEventScreenDrag:
+		_on_touch_drag(event)
+		get_tree().set_input_as_handled()
+		
+		
+func _on_touch_drag(event):
+	self.position.x = event.position.x
 
 func start(pos):
 	position = pos
